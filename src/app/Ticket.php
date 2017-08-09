@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class User extends Model
+class Ticket extends Model
 {
     protected $fillable = [
-        'email', 'fname', 'lname'
+        'subject', 'type', 'desc', 'completed'
     ];
 }

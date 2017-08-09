@@ -7,6 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 class Ticket extends Model
 {
     protected $fillable = [
-        'subject', 'type', 'desc', 'completed'
+        'subject', 'type', 'desc', 'completed', 'user_id'
     ];
+
+    public function comments() {
+        return $this->hasMany('App\Comment');
+    }
+
+    public function user() {
+        return $this->belongsTo('App\User');
+    }
 }

@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Ticket;
 
 class PagesController extends Controller
 {
     public function ticket() {
-        return view('ticket');
+        $ticket = new Ticket;
+        return view('ticket', ['ticket' => $ticket]);
     }
 
     public function view() {

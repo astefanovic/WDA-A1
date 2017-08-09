@@ -8,7 +8,7 @@
 
     <!-- TODO: On button click enable :invalid css selector, alongside php validation -->
     <div>
-        {!! Form::open(array('url' => '#')) !!}
+        {!! Form::open(['action' => 'TicketController@store']) !!}
         <div class="row">
             <div class="col-md-4 col-xs-12">
                 <div class="form-group">

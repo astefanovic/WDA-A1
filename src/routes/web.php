@@ -14,3 +14,5 @@
 Route::get('/', 'PagesController@ticket');
 
 Route::get('view', 'PagesController@view');
+
+Route::post('view', 'TicketController@store')->name('view');

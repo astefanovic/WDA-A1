@@ -13,6 +13,8 @@ class PagesController extends Controller
     }
 
     public function view() {
-        return view('view');
+        $completed = Ticket::where('completed', '=',1)->get();
+        $uncompleted = Ticket::where('completed', '=',0)->get();
+        return view('view', [ 'completed' => $completed, 'uncompleted' => $uncompleted]);
     }
 }

@@ -12,7 +12,7 @@ class TicketController extends Controller
         $allRequest = $request->all();
 
         $matchingUser = User::where('email', '=', $allRequest['email'])->first();
-        if ($matchingUser->count()) {
+        if ($matchingUser != null) {
             $newUser = $matchingUser;
         } else {
             $newUser = User::create(['email' => $allRequest['email'],

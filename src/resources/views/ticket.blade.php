@@ -35,7 +35,7 @@
             </div>
             <div class="col-md-6 col-xs-12">
                 <div class="form-group">
-                    {!! Form::select('type', ['its' => 'IT Services', 'web' => 'Web Services', 'business' => 'Business Systems', 'arg' => 'ARG'], null, ['placeholder' => 'Issue Type', 'class' => 'form-control', 'required' => 'required']) !!}
+                    {!! Form::select('type', ['IT Services' => 'IT Services', 'Web Services' => 'Web Services', 'Business Systems' => 'Business Systems', 'ARG' => 'ARG'], null, ['placeholder' => 'Issue Type', 'class' => 'form-control', 'required' => 'required']) !!}
                 </div>
             </div>
             <div class="col-xs-12">

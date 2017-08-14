@@ -13,6 +13,8 @@
 
 Route::get('/', 'PagesController@ticket');
 
-Route::get('view', 'PagesController@view');
+Route::get('view', 'PagesController@view')->name('view');
 
-Route::post('view', 'TicketController@store')->name('view');
+Route::post('view', 'TicketController@store');
+
+Route::post('comment/new', 'CommentController@store');

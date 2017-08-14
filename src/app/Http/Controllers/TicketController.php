@@ -11,6 +11,8 @@ class TicketController extends Controller
     public function store(Request $request) {
         $allRequest = $request->all();
 
+        //Checks if a user already exists, if so links it to ticket
+        //if not, makes a new user and links it to ticket
         $matchingUser = User::where('email', '=', $allRequest['email'])->first();
         if ($matchingUser != null) {
             $newUser = $matchingUser;

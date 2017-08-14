@@ -16,6 +16,8 @@ class PagesController extends Controller
     public function view() {
         $completed = Ticket::where('completed', '=',1)->get();
         $uncompleted = Ticket::where('completed', '=',0)->get();
-        return view('view', [ 'completed' => $completed, 'uncompleted' => $uncompleted, 'emails' => User::pluck('email')]);
+        //Array of ([0] => email@email.com) to (email@email.com => email@email.com) to be used in selectbox
+        $emails = User::pluck('email') -> toArray();
+        return view('view', [ 'completed' => $completed, 'uncompleted' => $uncompleted, 'emails' => array_combine($emails, $emails)]);
     }
 }

@@ -1,24 +1,18 @@
-<nav class="navbar navbar-default">
-<div class="container-fluid">
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="https://www.rmit.edu.au/"><div class="rmit-icon" style="background-size: cover; background-image: url({{url('assets/images/rmit-logo-cropped.png')}}); width: 20px; height: 100%"></div></a>
-    </div>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="https://www.rmit.edu.au/"><div class="rmit-icon" style="background-size: cover; background-image: url({{url('assets/images/rmit-logo-cropped.png')}}); width: 20px; height: 20px"></div></a>
 
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav">
-            <li><a href="./">Create Ticket</a></li>
-            <li><a href="./view">View Tickets</a></li>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="nav navbar-nav mr-auto">
+            <li class="nav-item"><a class="nav-link" href="./">Create Ticket</a></li>
+            <li class="nav-item"><a class="nav-link" href="./view">View Tickets</a></li>
         </ul>
-        <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Login</a></li>
-            <li><a href="#">Register</a></li>
+        <ul class="nav navbar-nav">
+            <li class="nav-item"><a class="nav-link" href="#">Login</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Register</a></li>
         </ul>
     </div>
-</div>
 </nav>

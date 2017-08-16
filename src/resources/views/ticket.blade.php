@@ -2,11 +2,8 @@
 @section('title', 'RMIT Ticketing')
 @section('content')
 <div class="container">
-    <div class="page-header">
-        <h1>Create ticket</h1>
-    </div>
+    <h1 class="display-4 py-5">Create Ticket</h1>
 
-    <!-- TODO: On button click enable :invalid css selector, alongside php validation -->
     <div>
         {!! Form::open(['action' => 'TicketController@store']) !!}
         <div class="row">
@@ -38,7 +35,7 @@
                     {!! Form::select('type', ['IT Services' => 'IT Services', 'Web Services' => 'Web Services', 'Business Systems' => 'Business Systems', 'ARG' => 'ARG'], null, ['placeholder' => 'Issue Type', 'class' => 'form-control', 'required' => 'required']) !!}
                 </div>
             </div>
-            <div class="col-xs-12">
+            <div class="col-md-12 col-xs-12">
                 <div class="form-group">
                     {!! Form::textarea('description', '', ['placeholder' => 'Description', 'class' => 'form-control', 'required' => 'required']) !!}
                 </div>

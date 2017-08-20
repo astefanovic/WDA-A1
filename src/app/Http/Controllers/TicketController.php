@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Ticket;
 use App\User;
+use App\Http\Requests\TicketFormRequest;
 
 class TicketController extends Controller
 {
-    public function store(Request $request) {
+    public function store(TicketFormRequest $request) {
         $allRequest = $request->all();
 
         //Checks if a user already exists, if so links it to ticket

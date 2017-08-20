@@ -18,3 +18,4 @@ Route::get('view', 'PagesController@view')->name('view');
 Route::post('view', 'TicketController@store');
 
 Route::post('comment/new', 'CommentController@store');
+

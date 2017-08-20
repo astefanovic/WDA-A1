@@ -16,9 +16,14 @@
             </form> --}}
 
             - <em>{{$ticket->type}}</em>
-            {!! Form::open(['action' => 'CommentController@update']) !!}
+            {!! Form::open(['action' => 'CommentController@delete', 'class' => 'float-right']) !!}
             {!! Form::hidden('ticketId', $ticket->id) !!}
-            @if($ticket->completed === 0){!! Form::submit('Done', ['class' => 'btn btn-success float-right']) !!}@endif
+            {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-sm float-right']) !!}
+            {!! Form::close() !!}
+
+            {!! Form::open(['action' => 'CommentController@update', 'class' => 'float-right']) !!}
+            {!! Form::hidden('ticketId', $ticket->id) !!}
+            @if($ticket->completed === 0){!! Form::submit('Done', ['class' => 'btn btn-success btn-sm float-right']) !!}@endif
             {!! Form::close() !!}
 
         </div>

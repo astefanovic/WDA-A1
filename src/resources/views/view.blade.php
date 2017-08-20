@@ -28,7 +28,7 @@
             @endif
 
             @foreach ($completed as $ticket)
-                @include('shared.ticketcard', ['ticket' => $ticket])
+                @include('shared.completedcard', ['ticket' => $ticket])
             @endforeach
         </div>
     </div>

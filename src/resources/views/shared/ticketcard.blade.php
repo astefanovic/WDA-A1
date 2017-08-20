@@ -1,13 +1,17 @@
 <div class="col-md-6 col-12">
     <div class="card bg-light mb-3">
-        <div class="card-header @if($ticket->completed === 0) bg-warning @else bg-success @endif">
-            {!! Form::open(['action' => 'CommentController@update']) !!}
+        <div class="card-header @if($ticket->completed === 0) bg-warning
+                                @else bg-success @endif">
+            {!! Form::open(['action' => 'CommentController@delete', 'class' => 'float-right']) !!}
             {!! Form::hidden('ticketId', $ticket->id) !!}
-                @if($ticket->completed === 0)
-                    <button type="submit" class="glyphicon-unchecked float-right"></button>
-                @endif
+            {!! Form::button('<i class="material-icons">delete</i>', ['type'=>'submit', 'class' => 'btn btn-danger float-right']) !!}
             {!! Form::close() !!}
-            <h3 clas    s="card-title">{{$ticket->subject}}</h3> - <em>{{$ticket->type}}</em>
+
+            {!! Form::open(['action' => 'CommentController@update', 'class' => 'float-right']) !!}
+            {!! Form::hidden('ticketId', $ticket->id) !!}
+            @if($ticket->completed === 0){!! Form::button('<i class="material-icons">done</i>', ['type'=>'submit', 'class' => 'btn btn-success float-right']) !!}@endif
+            {!! Form::close() !!}
+            <h3 class="card-title">{{$ticket->subject}}</h3> - <em>{{$ticket->type}}</em>
         </div>
         <div class="card-body">{{$ticket->desc}} <br> <div class="text-right"> - <em>{{$ticket->user->email}}</em></div></div>
         <ul class="list-group list-group-flush">

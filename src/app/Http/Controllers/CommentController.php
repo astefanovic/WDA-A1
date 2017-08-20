@@ -33,4 +33,11 @@ class CommentController extends Controller
         return redirect()->route('view');
     }
 
+    public function delete(Request $request) {
+        $allRequest = $request->all();
+        //Deleting the current ticket
+        $ticket = Ticket::where('id', '=', $allRequest['ticketId'])->first();
+        $ticket->delete();
+        return redirect()->route('view');
+    }
 }

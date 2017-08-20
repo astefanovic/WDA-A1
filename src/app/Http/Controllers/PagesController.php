@@ -18,7 +18,9 @@ class PagesController extends Controller
         $uncompleted = Ticket::where('completed', '=',0)->get();
         //Array of ([0] => email@email.com) to (email@email.com => email@email.com) to be used in selectbox
         $emails = User::pluck('email') -> toArray();
-        return view('view', [ 'completed' => $completed, 'uncompleted' => $uncompleted, 'emails' => array_combine($emails, $emails)])
-            ->with('msg','Your ticket has been created.');
+
+        session()->flash('msg', 'Your ticket has been created.');
+
+        return view('view', [ 'completed' => $completed, 'uncompleted' => $uncompleted, 'emails' => array_combine($emails, $emails)]);
     }
 }

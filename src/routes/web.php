@@ -15,6 +15,10 @@ Route::get('/', 'PagesController@ticket');
 
 Route::get('view', 'PagesController@view')->name('view');
 
+Route::get('FAQ', function(){
+    return view('faq');
+});
+
 Route::post('view', 'TicketController@store');
 
 Route::post('comment/new', 'CommentController@store');

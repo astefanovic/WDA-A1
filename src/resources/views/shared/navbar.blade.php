@@ -11,6 +11,7 @@
             <li class="nav-item"><a class="nav-link" href="./view">View Tickets</a></li>
         </ul>
         <ul class="nav navbar-nav">
+            <li class="nav-item"><a class="nav-link" href="./FAQ">FAQ</a></li>
             <li class="nav-item"><a class="nav-link" href="#">Login</a></li>
             <li class="nav-item"><a class="nav-link" href="#">Register</a></li>
         </ul>

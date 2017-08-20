@@ -13,6 +13,19 @@
                 </div>
             @endif
 
+            @if($errors->any())
+                <div class="col-12">
+                    <div class="alert alert-danger">
+                        <strong>Whoops!</strong><br>
+                        <ul>
+                            @foreach($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                </div>
+            @endif
+
             @foreach ($uncompleted as $ticket)
                 @include('shared.ticketcard', ['ticket' => $ticket])
             @endforeach

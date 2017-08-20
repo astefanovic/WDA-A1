@@ -6,7 +6,6 @@ use App\Ticket;
 use Illuminate\Http\Request;
 use App\Comment;
 use App\User;
-use Illuminate\Support\Facades\Log;
 use App\Http\Requests\CommentFormRequest;
 
 class CommentController extends Controller

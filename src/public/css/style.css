@@ -1,0 +1,30 @@
+.list-title-wrapper {
+    font-size: 1.8vh;
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #63a4ff;
+}
+
+.list-title-wrapper:hover .delete {
+    width: 25%;
+}
+
+.list-title-wrapper:hover .delete {
+    width: 25%;
+}
+
+.delete {
+    font-size: 1.8vh;
+    display: flex;
+    justify-content: center;
+    align-self: stretch;
+    align-items: center;
+    flex-shrink: 0;
+    background-color: crimson;
+    overflow: hidden;
+    width: 0;
+    box-shadow: inset 0px 0px 8px 1px rgba(0,0,0,0.93);
+    transition: 0.5s ease;
+}

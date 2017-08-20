@@ -22,16 +22,6 @@
             <a class="list-group-item panel-footer text-center text-light bg-dark" data-toggle="collapse" href="#{{$ticket->id}}" aria-expanded="false" aria-controls="{{$ticket->id}}">
                 Add Comment
             </a>
-                @if($errors->any())
-                    <div class="alert alert-danger">
-                        <strong>Whoops!</strong><br>
-                        <ul>
-                            @foreach($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
                 {!! Form::open(['action' => 'CommentController@store']) !!}
                 <li class="collapse card-body" id="{{$ticket->id}}" data-parent="#accordion" value="store">
                 {!! Form::hidden('ticketId', $ticket->id) !!}

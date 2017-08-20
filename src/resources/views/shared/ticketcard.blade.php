@@ -1,26 +1,13 @@
 <div class="col-md-6 col-12">
     <div class="card bg-light mb-3">
         <div class="card-header @if($ticket->completed === 0) bg-warning @else bg-success @endif">
-
-
-            <h3 class="card-title">{{$ticket->subject}}</h3>
-
-            {{--
-            <input type="hidden" name="status" value="0">
-            {!!Form::checkbox('status', 1, false)!!}
-
-
-            <form action = "{{url('/ticketStatus')}}" method="post">
-                <input name="status" value="1">
-                <button type="submit" name="ticStatus">Completed</button>
-            </form> --}}
-
-            - <em>{{$ticket->type}}</em>
             {!! Form::open(['action' => 'CommentController@update']) !!}
             {!! Form::hidden('ticketId', $ticket->id) !!}
-            @if($ticket->completed === 0){!! Form::submit('Done', ['class' => 'btn btn-success float-right']) !!}@endif
+                @if($ticket->completed === 0)
+                    <button type="submit" class="glyphicon-unchecked float-right"></button>
+                @endif
             {!! Form::close() !!}
-
+            <h3 clas    s="card-title">{{$ticket->subject}}</h3> - <em>{{$ticket->type}}</em>
         </div>
         <div class="card-body">{{$ticket->desc}} <br> <div class="text-right"> - <em>{{$ticket->user->email}}</em></div></div>
         <ul class="list-group list-group-flush">

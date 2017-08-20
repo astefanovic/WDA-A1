@@ -28,4 +28,11 @@ class CommentFormRequest extends FormRequest
             'text' => 'required',
         ];
     }
+
+    public function getValidatorInstance() {
+        $data = $this->all();
+        $this->errorBag = $data['ticketId'];
+        \Log::info($this->errorBag);
+        return parent::getValidatorInstance();
+    }
 }

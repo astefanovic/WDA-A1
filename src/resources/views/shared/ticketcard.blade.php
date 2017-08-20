@@ -15,6 +15,7 @@
                 <li class="list-group-item panel-footer">{{$comment->text}}<br>
                     <div class="text-right"> - <em>{{$comment->user->email}}</em></div></li>
             @endforeach
+            @if($ticket->completed ===0)
             <a class="list-group-item panel-footer text-center text-light bg-dark" data-toggle="collapse" href="#{{$ticket->id}}" aria-expanded="false" aria-controls="{{$ticket->id}}">
                 Add Comment
             </a>
@@ -30,17 +31,18 @@
                 @endif
                 {!! Form::open(['action' => 'CommentController@store']) !!}
                 <li class="collapse card-body" id="{{$ticket->id}}" data-parent="#accordion" value="store">
-                {!! Form::hidden('ticketId', $ticket->id) !!}
-                <div class="form-group">
-                    {!! Form::select('email', $emails, null, ['placeholder' => 'Email', 'class' => 'form-control']) !!}
-                </div>
-                <div class="form-group">
-                    {!! Form::textarea('text', '', ['placeholder' => 'New Comment', 'class' => 'form-control']) !!}
-                </div>
-                <div class="form-group">
-                    {!! Form::submit(null, ['class' => 'btn btn-default']) !!}
-                </div>
-            </li>
+                    {!! Form::hidden('ticketId', $ticket->id) !!}
+                    <div class="form-group">
+                        {!! Form::select('email', $emails, null, ['placeholder' => 'Email', 'class' => 'form-control']) !!}
+                    </div>
+                    <div class="form-group">
+                        {!! Form::textarea('text', '', ['placeholder' => 'New Comment', 'class' => 'form-control']) !!}
+                    </div>
+                    <div class="form-group">
+                        {!! Form::submit(null, ['class' => 'btn btn-default']) !!}
+                    </div>
+                </li>
+                @endif
         </ul>
     </div>
 </div>

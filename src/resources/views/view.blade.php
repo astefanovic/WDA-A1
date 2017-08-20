@@ -4,6 +4,14 @@
     <div class="container">
         <div class="row">
             <div class="col-12 pt-5">
+                <div class="alert alert-success">
+                    <button type="button" class="close" aria-hidden="true"></button>
+                    <strong>Success! </strong>{{$msg}}
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 pt-5">
                 <h1 class="d-inline display-4">In Progress @if ($uncompleted->count() > 0) </h1> <h5 class="d-inline"><span class="badge badge-secondary align-text-top">{{$uncompleted->count()}}</span> </h5>@endif
                 <hr class="pb-5">
             </div>
@@ -28,7 +36,7 @@
             @endif
 
             @foreach ($completed as $ticket)
-                @include('shared.completedcard', ['ticket' => $ticket])
+                @include('shared.ticketcard', ['ticket' => $ticket])
             @endforeach
         </div>
     </div>

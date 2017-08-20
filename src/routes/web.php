@@ -19,3 +19,5 @@ Route::post('view', 'TicketController@store');
 
 Route::post('comment/new', 'CommentController@store');
 
+Route::post('comment/update', 'CommentController@update');
+

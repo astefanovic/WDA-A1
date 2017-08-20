@@ -16,6 +16,7 @@ class CommentController extends Controller
         //Creates a comment based on the email of the panel it was in
         //and the ticket id, found from the loop on creation in the
         //blade file
+        /*
         if($request->has('status')){
             $ticket = Ticket::findOrFail($allRequest['ticketId']);
             if(Ticket::where('completed', '=', '1'))
@@ -23,7 +24,7 @@ class CommentController extends Controller
                 $ticket->completed = 'true';
                 $ticket->update($request);
             }
-        }
+        } */
 
         $user = User::where('email', '=', $allRequest['email'])->first();
         $newComment = Comment::create(['text' => $allRequest['text'],
@@ -31,6 +32,14 @@ class CommentController extends Controller
             'ticket_id' => $allRequest['ticketId']]);
         $newComment->save();
 
+        return redirect()->route('view');
+    }
+
+    public function update(Request $request) {
+        $allRequest = $request->all();
+        //Setting the completed value to 1 (True)
+        $ticket = Ticket::where('id', '=', $allRequest['ticketId'])->first();
+        $ticket->update(['completed'=>1]);
         return redirect()->route('view');
     }
 

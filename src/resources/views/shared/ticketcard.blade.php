@@ -1,31 +1,17 @@
 <div class="col-md-6 col-12">
     <div class="card bg-light mb-3">
-        <div class="card-header @if($ticket->completed === 0) bg-warning @else bg-success @endif">
-
-
-            <h3 class="card-title">{{$ticket->subject}}</h3>
-
-            {{--
-            <input type="hidden" name="status" value="0">
-            {!!Form::checkbox('status', 1, false)!!}
-
-
-            <form action = "{{url('/ticketStatus')}}" method="post">
-                <input name="status" value="1">
-                <button type="submit" name="ticStatus">Completed</button>
-            </form> --}}
-
-            - <em>{{$ticket->type}}</em>
+        <div class="card-header @if($ticket->completed === 0) bg-warning
+                                @else bg-success @endif">
             {!! Form::open(['action' => 'CommentController@delete', 'class' => 'float-right']) !!}
             {!! Form::hidden('ticketId', $ticket->id) !!}
-            {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-sm float-right']) !!}
+            {!! Form::button('<i class="material-icons">delete</i>', ['type'=>'submit', 'class' => 'btn btn-danger float-right']) !!}
             {!! Form::close() !!}
 
             {!! Form::open(['action' => 'CommentController@update', 'class' => 'float-right']) !!}
             {!! Form::hidden('ticketId', $ticket->id) !!}
-            @if($ticket->completed === 0){!! Form::submit('Done', ['class' => 'btn btn-success btn-sm float-right']) !!}@endif
+            @if($ticket->completed === 0){!! Form::button('<i class="material-icons">done</i>', ['type'=>'submit', 'class' => 'btn btn-success float-right']) !!}@endif
             {!! Form::close() !!}
-
+            <h3 class="card-title">{{$ticket->subject}}</h3> - <em>{{$ticket->type}}</em>
         </div>
         <div class="card-body">{{$ticket->desc}} <br> <div class="text-right"> - <em>{{$ticket->user->email}}</em></div></div>
         <ul class="list-group list-group-flush">

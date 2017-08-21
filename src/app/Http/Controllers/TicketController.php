@@ -30,6 +30,8 @@ class TicketController extends Controller
             'completed' => false]);
         $newTicket->save();
 
+        session()->flash('msg', 'Your ticket has been created.');
+
         return redirect()->route('view');
     }
 }

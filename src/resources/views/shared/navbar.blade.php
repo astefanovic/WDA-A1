@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="https://www.rmit.edu.au/"><div class="rmit-icon" style="background-size: cover; background-image: url({{url('assets/images/rmit-logo-cropped.png')}}); width: 20px; height: 20px"></div></a>
+    <a class="navbar-brand" href="https://www.rmit.edu.au/"><div class="rmit-icon" id="nav-icon"></div></a>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>

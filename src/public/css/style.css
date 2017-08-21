@@ -1,21 +1,45 @@
-.list-title-wrapper {
-    font-size: 1.8vh;
-    display: flex;
-    position: relative;
+/*.card-header {
+    /*font-size: 1.8vh;*/
+    /*display: flex; */
+    /*position: relative;
     justify-content: space-between;
     align-items: center;
-    background-color: #63a4ff;
+    background-color: #63a4ff; */
+#nav-icon {
+    background-size: cover;
+    background-image: url('../assets/images/rmit-logo-cropped.png');
+    width: 20px;
+    height: 20px;
+}
+.bg-green {
+    background-color: #66bb6a !important;
 }
 
-.list-title-wrapper:hover .delete {
+.icon-wrapper {
+    height: 42px;
+}
+
+.no-caret:after{
+    display: none;
+}
+
+.bg-dark-warning {
+    background-color: #a7a7a7 !important;
+}
+
+.card-header {
+    padding: 1.25rem 1.25rem;
+}
+
+.dropdown-menu {
+    min-width: 0;
+}
+/*
+.card-header:hover .ticket-controls {
     width: 25%;
 }
 
-.list-title-wrapper:hover .delete {
-    width: 25%;
-}
-
-.delete {
+.ticket-controls {
     font-size: 1.8vh;
     display: flex;
     justify-content: center;
@@ -28,3 +52,4 @@
     box-shadow: inset 0px 0px 8px 1px rgba(0,0,0,0.93);
     transition: 0.5s ease;
 }
+*/

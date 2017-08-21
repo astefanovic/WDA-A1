@@ -53,7 +53,6 @@
                 </div>
                 </li>
              @endif
->>>>>>> hover-ticket-control
         </ul>
     </div>
 </div>

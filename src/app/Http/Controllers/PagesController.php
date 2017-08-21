@@ -19,8 +19,6 @@ class PagesController extends Controller
         //Array of ([0] => email@email.com) to (email@email.com => email@email.com) to be used in selectbox
         $emails = User::pluck('email') -> toArray();
 
-        session()->flash('msg', 'Your ticket has been created.');
-
         return view('view', [ 'completed' => $completed, 'uncompleted' => $uncompleted, 'emails' => array_combine($emails, $emails)]);
     }
 }

@@ -34,6 +34,15 @@
 .dropdown-menu {
     min-width: 0;
 }
+
+.borderless-accordion {
+    padding-top: 10px;
+    padding-bottom: 15px;
+}
+
+a {
+    text-decoration: none;
+}
 /*
 .card-header:hover .ticket-controls {
     width: 25%;

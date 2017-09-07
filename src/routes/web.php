@@ -26,3 +26,7 @@ Route::post('comment/new', 'CommentController@store');
 Route::post('comment/update', 'CommentController@update');
 
 Route::post('comment/delete', 'CommentController@delete');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

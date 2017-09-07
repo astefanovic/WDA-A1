@@ -13,6 +13,8 @@ class CreateCommentsTable extends Migration
      */
     public function up()
     {
+        //Create the comments table and make a foreign key referencing
+        //the tickets table
         Schema::create('comments', function (Blueprint $table) {
             $table->increments('id');
             $table->string('text');

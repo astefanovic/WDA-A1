@@ -55,8 +55,6 @@
             @endforeach
         </div>
     </div>
-    <!-- TODO: Add 'Mark as complete' button -->
-    <!-- TODO: Make the tickets tile nicely, maybe use masonry https://stackoverflow.com/questions/32135519/how-can-i-create-tile-layout-in-bootstrap or make your own flexbox -->
     {{-- When login is implemented, replacement for commenting:
     <div class="panel-footer">
                             <div class="input-group">

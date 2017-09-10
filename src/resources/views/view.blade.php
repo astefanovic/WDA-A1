@@ -40,9 +40,9 @@
                 @include('shared.ticketcard', ['ticket' => $ticket])
             @endforeach
 
-            <div class="col-12">
+            <div class="col-12 pt-5">
                 <h1 class="display-4 pt-5">Completed</h1>
-                <hr class="">
+                <hr class="pb-5">
             </div>
             @if ($completed->isEmpty())
                 <div class="col-12">

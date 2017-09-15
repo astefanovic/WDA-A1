@@ -4,6 +4,8 @@
 <div class="container">
     <div class="row">
         <h1 class="display-4 py-5">Login</h1>
+    </div>
+    <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <form class="form-horizontal" method="POST" action="{{ route('login') }}">
                 {{ csrf_field() }}
@@ -16,7 +18,7 @@
 
                         @if ($errors->has('email'))
                             <span class="help-block">
-                            <strong>{{ $errors->first('email') }}</strong>
+                            <strong id="er">{{ $errors->first('email') }}</strong>
                         </span>
                         @endif
                     </div>
@@ -30,7 +32,7 @@
 
                         @if ($errors->has('password'))
                             <span class="help-block">
-                            <strong>{{ $errors->first('password') }}</strong>
+                            <strong id="er">{{ $errors->first('password') }}</strong>
                         </span>
                         @endif
                     </div>

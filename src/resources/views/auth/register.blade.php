@@ -2,7 +2,9 @@
 @section('title', 'Register')
 @section('content')
 <div class="container">
-    <h1 class="display-4 py-5">Register</h1>
+    <div class ="row">
+        <h1 class="display-4 py-5">Register</h1>
+    </div>
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
                 <form class="form-horizontal" method="POST" action="{{ route('register') }}">

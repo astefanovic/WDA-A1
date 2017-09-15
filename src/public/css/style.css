@@ -42,8 +42,13 @@
 .hidden {
     display: none;
 }
+
 a {
     text-decoration: none;
+}
+
+.help-block {
+    color: red;
 }
 /*
 .card-header:hover .ticket-controls {

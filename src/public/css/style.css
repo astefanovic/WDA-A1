@@ -5,12 +5,30 @@
     justify-content: space-between;
     align-items: center;
     background-color: #63a4ff; */
+
 #nav-icon {
     background-size: cover;
     background-image: url('../assets/images/rmit-logo-cropped.png');
     width: 20px;
     height: 20px;
 }
+
+body, html {
+    height: 100%;
+    width: 100%;
+}
+
+.cover-page{
+    background-image: url('../assets/images/rmit.jpg');
+    height: 100%;
+    background-position: center center;
+    background-size: cover;
+}
+
+.cov{
+    background-color: white;
+}
+
 .bg-green {
     background-color: #66bb6a !important;
 }
@@ -50,6 +68,7 @@ a {
 .help-block {
     color: red;
 }
+
 /*
 .card-header:hover .ticket-controls {
     width: 25%;

@@ -17,12 +17,12 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('tickets', 'TicketController@index');
+Route::middleware('cors')->get('tickets', 'TicketController@index');
 
-Route::get('tickets/{id}', 'TicketController@show');
+Route::middleware('cors')->get('tickets/{id}', 'TicketController@show');
 
-Route::post('tickets', 'TicketController@store');
+Route::middleware('cors')->post('tickets', 'TicketController@store');
 
-Route::post('tickets/{id}', 'TicketController@update');
+Route::middleware('cors')->post('tickets/{id}', 'TicketController@update');
 
-Route::post('tickets/{id}', 'TicketController@delete');
+Route::middleware('cors')->post('tickets/{id}', 'TicketController@delete');

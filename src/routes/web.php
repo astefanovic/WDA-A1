@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/', 'PagesController@ticket');
+Route::get('/', 'PagesController@ticket')->middleware('auth');
 
-Route::get('view', 'PagesController@view')->name('view');
+Route::get('view', 'PagesController@view')->name('view')->middleware('auth');
 
 Route::get('FAQ', function(){
     return view('faq');
@@ -28,5 +28,3 @@ Route::post('comment/update', 'CommentController@update');
 Route::post('comment/delete', 'CommentController@delete');
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');

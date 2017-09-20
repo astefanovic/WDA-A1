@@ -26,6 +26,7 @@ class CreateStaffTable extends Migration
 
         //Create the foreign key in the tickets table
         Schema::table('tickets', function ($table) {
+            //Nullable if it is not assigned to a staff member
             $table->integer('staff_id')->nullable()->unsigned();
             $table->foreign('staff_id')
                 ->references('id')->on('staff')
@@ -34,7 +35,7 @@ class CreateStaffTable extends Migration
 
         //Create the foreign key in the comments table
         Schema::table('comments', function ($table) {
-            $table->integer('staff_id')->unsigned();
+            $table->integer('staff_id')->nullable()->unsigned();
             $table->foreign('staff_id')
                 ->references('id')->on('staff')
                 ->onDelete('cascade');

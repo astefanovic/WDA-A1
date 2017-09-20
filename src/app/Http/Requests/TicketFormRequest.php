@@ -23,10 +23,8 @@ class TicketFormRequest extends FormRequest
      */
     public function rules()
     {
+        //Requires data in each form input
         return [
-            'email' => 'required|email',
-            'firstname' => 'required',
-            'lastname' => 'required',
             'subject' => 'required',
             'type' => 'required',
             'description' => 'required',

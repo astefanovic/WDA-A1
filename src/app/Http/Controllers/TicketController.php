@@ -14,6 +14,7 @@ class TicketController extends Controller
 
         //Checks if a user already exists, if so links it to ticket
         //if not, makes a new user and links it to ticket
+        /*
         $matchingUser = User::where('email', '=', $allRequest['email'])->first();
         if ($matchingUser != null) {
             $newUser = $matchingUser;
@@ -22,12 +23,14 @@ class TicketController extends Controller
                 'fname' => $allRequest['firstname'],
                 'lname' => $allRequest['lastname']]);
         }
-        $newUser->save();
+        $newUser->save(); */
 
+        //Adds a new ticket, selecting the user based on the id passed in,
+        //with no staff member assigned
         $newTicket = Ticket::create(['subject' => $allRequest['subject'],
             'type' => $allRequest['type'],
             'desc' => $allRequest['description'],
-            'user_id' => $newUser->id,
+            'user_id' => $allRequest['userId'],
             'staff_id' => null,
             'completed' => false]);
         $newTicket->save();

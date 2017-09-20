@@ -23,8 +23,8 @@ class CommentFormRequest extends FormRequest
      */
     public function rules()
     {
+        //Requires the body of the comment to not be blank
         return [
-            'email' => 'required|email',
             'text' => 'required',
         ];
     }

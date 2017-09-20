@@ -20,7 +20,7 @@
                     <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         {{Auth::user()->fname.' '.Auth::user()->lname}}
                     </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
                         <form action="{{ route('logout') }}" method="POST">
                             {{ csrf_field() }}
                             <button class="dropdown-item" type="submit">Logout</button>

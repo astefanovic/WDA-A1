@@ -25,8 +25,8 @@ body, html {
     background-size: cover;
 }
 
-.cov{
-    background-color: white;
+#cardColor{
+    background-color: #FAFAFA;
 }
 
 .bg-green {

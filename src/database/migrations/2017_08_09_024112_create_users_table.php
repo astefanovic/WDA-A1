@@ -35,7 +35,8 @@ class CreateUsersTable extends Migration
 
         //Create the foreign key in the comments table
         Schema::table('comments', function ($table) {
-            $table->integer('user_id')->unsigned();
+            //Nullable if it is a staff comment instead
+            $table->integer('user_id')->nullable()->unsigned();
             $table->foreign('user_id')
                 ->references('id')->on('users')
                 ->onDelete('cascade');

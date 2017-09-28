@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Staff extends Model
 {
     protected $fillable = [
-        'email', 'fname', 'lname', 'type'
+        'email', 'uid', 'name', 'type'
     ];
 
     //Each staff member can be assigned to many tickets

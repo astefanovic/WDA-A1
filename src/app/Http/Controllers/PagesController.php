@@ -21,4 +21,8 @@ class PagesController extends Controller
 
         return view('view', [ 'completed' => $completed, 'uncompleted' => $uncompleted, 'emails' => array_combine($emails, $emails)]);
     }
+
+    public function faq() {
+        return view('faq');
+    }
 }

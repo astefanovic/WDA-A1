@@ -16,6 +16,8 @@
     @endif
     <div>
         {!! Form::open(['action' => 'TicketController@store']) !!}
+        {!! Form::hidden('userId', Auth::user()->id) !!}
+        {{--
         <div class="row">
             <div class="col-md-4 col-xs-12">
                 <div class="form-group">
@@ -33,7 +35,7 @@
                 </div>
             </div>
         </div>
-        <hr>
+        <hr> --}}
         <div class="row">
             <div class="col-md-6 col-xs-12">
                 <div class="form-group">

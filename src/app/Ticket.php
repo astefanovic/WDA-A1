@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Ticket extends Model
 {
     protected $fillable = [
-        'subject', 'type', 'desc', 'completed', 'user_id'
+        'subject', 'type', 'desc', 'completed', 'user_id', 'staff_id'
     ];
 
     public function comments() {
@@ -16,5 +16,9 @@ class Ticket extends Model
 
     public function user() {
         return $this->belongsTo('App\User');
+    }
+
+    public function staff() {
+        return $this->belongsTo('App\Staff');
     }
 }

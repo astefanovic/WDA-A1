@@ -1,6 +1,17 @@
 @extends('layouts.default')
 @section('title', 'View Tickets')
 @section('content')
+    {{-- Removes the tickets not belonging to current user --}}
+    @php
+        foreach($uncompleted as $arrayNumber => $ticket) {
+            if($ticket->user_id != Auth::user()->id) unset($uncompleted[$arrayNumber]);
+        }
+
+        foreach($completed as $arrayNumber => $ticket) {
+            if($ticket->user_id != Auth::user()->id) unset($completed[$arrayNumber]);
+        }
+    @endphp
+
     <div class="container">
         @if(session()->has('msg'))
         <div class="row">
@@ -55,13 +66,4 @@
             @endforeach
         </div>
     </div>
-    {{-- When login is implemented, replacement for commenting:
-    <div class="panel-footer">
-                            <div class="input-group">
-                                {!! Form::text('comment', '', ['placeholder' => 'New Comment', 'class' => 'form-control']) !!}
-            <div class="input-group-btn">
-{!! Form::submit(null, ['class' => 'btn btn-default']) !!}
-            </div>
-        </div>
-    </div> --}}
 @endsection

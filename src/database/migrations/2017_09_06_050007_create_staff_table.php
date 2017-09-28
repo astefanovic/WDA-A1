@@ -15,9 +15,10 @@ class CreateStaffTable extends Migration
     {
         Schema::create('staff', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('email')->unique();
-            $table->string('fname');
-            $table->string('lname');
+            //uid as given by google authentication
+            $table->string('uid');
+            $table->string('email');
+            $table->string('name');
             //The type of employee, can be
             //Helpdesk or a Technician
             $table->string('type');
@@ -26,7 +27,8 @@ class CreateStaffTable extends Migration
 
         //Create the foreign key in the tickets table
         Schema::table('tickets', function ($table) {
-            $table->integer('staff_id')->unsigned();
+            //Nullable if it is not assigned to a staff member
+            $table->integer('staff_id')->nullable()->unsigned();
             $table->foreign('staff_id')
                 ->references('id')->on('staff')
                 ->onDelete('cascade');
@@ -34,7 +36,7 @@ class CreateStaffTable extends Migration
 
         //Create the foreign key in the comments table
         Schema::table('comments', function ($table) {
-            $table->integer('staff_id')->unsigned();
+            $table->integer('staff_id')->nullable()->unsigned();
             $table->foreign('staff_id')
                 ->references('id')->on('staff')
                 ->onDelete('cascade');

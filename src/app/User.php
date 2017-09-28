@@ -2,12 +2,19 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Model
+class User extends Authenticatable
 {
+    use Notifiable;
+
     protected $fillable = [
-        'email', 'fname', 'lname'
+        'email', 'fname', 'lname', 'password'
+    ];
+
+    protected $hidden = [
+        'remember_token'
     ];
 
     public function tickets() {

@@ -34,4 +34,36 @@ class TicketController extends Controller
 
         return redirect()->route('view');
     }
+
+    //API functions
+    //Returns all tickets
+    public function index() {
+        return Ticket::all();
+    }
+
+    //Returns ticket requested
+    public function show($id) {
+        return Ticket::find($id);
+    }
+
+    /*
+     * Other store method needs to be removed or function name changed before this is implemented
+    //Stores a new ticket
+    public function store(Request $request) {
+        return Ticket::create($request->all());
+    }
+    */
+
+    //Updates ticket with corresponding id
+    public function update(Request $request, $id) {
+
+    }
+
+    //Deletes ticket with corresponding id
+    public function delete(Request $request, $id) {
+        $ticket = Ticket::findOrFail($id);
+        $ticket->delete();
+
+        return 204;
+    }
 }

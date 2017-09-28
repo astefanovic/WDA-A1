@@ -13,6 +13,8 @@ class CreateTicketsTable extends Migration
      */
     public function up()
     {
+        //Create the tickets table, foreign keys will be created by
+        //the other tables when they are created
         Schema::create('tickets', function (Blueprint $table) {
             $table->increments('id');
             $table->string('subject');

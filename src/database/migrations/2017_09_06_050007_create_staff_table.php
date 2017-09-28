@@ -15,9 +15,10 @@ class CreateStaffTable extends Migration
     {
         Schema::create('staff', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('email')->unique();
-            $table->string('fname');
-            $table->string('lname');
+            //uid as given by google authentication
+            $table->string('uid');
+            $table->string('email');
+            $table->string('name');
             //The type of employee, can be
             //Helpdesk or a Technician
             $table->string('type');

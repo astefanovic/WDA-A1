@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Ticket;
 use App\User;
 use App\Http\Requests\TicketFormRequest;
+use Illuminate\Http\Request;
+use Symfony\Component\HttpKernel\Exception\HttpException;
 use Mockery\Exception;
 
 class TicketController extends Controller
@@ -51,13 +53,22 @@ class TicketController extends Controller
         return Ticket::find($id);
     }
 
-    /*
-     * Other store method needs to be removed or function name changed before this is implemented
     //Stores a new ticket
-    public function store(Request $request) {
-        return Ticket::create($request->all());
+    public function insert(Request $request) {
+        try {
+            $newTicket = Ticket::create(['subject' => $request->input('subject'),
+                'type' => $request->input('type'),
+                'desc' => $request->input('desc'),
+                'user_id' => $request->input('user_id'),
+                'staff_id' => null,
+                'completed' => false]);
+            if($newTicket->save()) return $newTicket;
+            throw new HttpException(400, "Invalid data");
+        } catch (\Exception $e) {
+            return array("status" => "error");
+        }
+        //return Ticket::create($request->all());
     }
-    */
 
     //Updates ticket with corresponding id
     public function update(Request $request, $id) {
@@ -72,7 +83,7 @@ class TicketController extends Controller
                 return array("status" => "error");
             }
         }
-        catch(Exception $e) {
+        catch(\Exception $e) {
             return array("status" => "error");
         }
 
@@ -90,7 +101,7 @@ class TicketController extends Controller
             }
 
             return array("status" => "success");
-        } catch(Exception $e) {
+        } catch(\Exception $e) {
             return array("status" => "error");
         }
 

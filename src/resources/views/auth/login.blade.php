@@ -6,11 +6,11 @@
         <div class="row h-100 justify-content-center">
             <div class="col-md-6 my-auto">
                 <div class="card text-center" id="cardColor">
-                    <br>
-                    <h1 class="card-title">Welcome to RMIT Ticketing Service</h1>
-                    <h1 class="display-5 py-3 text-center">Login</h1>
                     <div class="card-body" align="center">
-                        <form class="form-horizontal" method="POST"
+                        <h1 class="card-title display-4 py-4">Welcome to RMIT Ticketing Service</h1>
+                        <hr>
+                        <h1 class="display-4 py-3 text-center">Login</h1>
+                        <form class="form-horizontal py-2" method="POST"
                               action="{{ route('login') }}">
                             {{ csrf_field() }}
 
@@ -68,7 +68,7 @@
                                 </div>
                             </div>
                         </form>
-                        <br>
+                        <hr class="py-2">
                         <p> No account? <a href="http://localhost/WDA-A1/src/public/register">Sign up here</a></p>
                     </div>
                 </div>

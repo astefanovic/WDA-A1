@@ -10,8 +10,9 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="{{url('css/style.css')}}" rel="stylesheet">
 <body>
-@include('shared.navbar')
-@yield('content')
+    @include('shared.navbar')
+    @yield('content')
+</body>
 <footer>
     <div class="container pt-5">
         <hr>

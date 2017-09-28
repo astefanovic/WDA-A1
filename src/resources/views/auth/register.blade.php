@@ -6,9 +6,9 @@
         <div class="row h-100 justify-content-center">
             <div class="col-md-6 my-auto">
                 <div class="card text-center" id="cardColor">
-                    <br>
-                    <h1 class="card-title">Register</h1>
                     <div class="card-body" align="center">
+                        <h1 class="card-title display-4 py-2">Register</h1>
+                        <hr class="py-2">
                         <form class="form-horizontal" method="POST" action="{{ route('register') }}">
                             {{ csrf_field() }}
                             <div class="form-group{{ $errors->has('fname') ? ' has-error' : '' }}">

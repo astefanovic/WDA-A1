@@ -25,9 +25,9 @@ Route::middleware('cors')->get('tickets/{id}', 'TicketController@show');
 
 Route::middleware('cors')->post('tickets', 'TicketController@insert');
 
-Route::middleware('cors')->post('tickets/{id}', 'TicketController@update');
+Route::middleware('cors')->post('tickets/update', 'TicketController@update');
 
-Route::middleware('cors')->post('tickets/{id}', 'TicketController@delete');
+Route::middleware('cors')->get('tickets/delete/{id}', 'TicketController@delete');
 
 //Staff API routes
 
@@ -36,5 +36,7 @@ Route::middleware('cors')->get('staff', 'StaffController@index');
 Route::middleware('cors')->get('staff/{id}', 'StaffController@show');
 
 Route::middleware('cors')->post('staff', 'StaffController@store');
+
+Route::middleware('cors')->post('staff/tickets', 'StaffController@showTickets');
 
 

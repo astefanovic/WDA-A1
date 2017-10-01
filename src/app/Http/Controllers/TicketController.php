@@ -32,6 +32,9 @@ class TicketController extends Controller
         $newTicket = Ticket::create(['subject' => $allRequest['subject'],
             'type' => $allRequest['type'],
             'desc' => $allRequest['description'],
+            'status' => 'pending',
+            'escalation' => '1',
+            'priority' => 'low',
             'user_id' => $allRequest['userId'],
             'staff_id' => null,
             'completed' => false]);
@@ -71,23 +74,25 @@ class TicketController extends Controller
     }
 
     //Updates ticket with corresponding id
-    public function update(Request $request, $id) {
+    public function update(Request $request) {
         try {
-            $ticket = Ticket::find($id);
-            $ticket->name = $request->name;
-            $ticket->details = $request->details;
+            $ticket = Ticket::where('id', '=', $request->input('id'))->first();
 
-            $saved = $ticket->save();
+            $ticket->subject = $request->input('subject');
+            $ticket->status = $request->input('status');
+            $ticket->desc = $request->input('desc');
+            $ticket->escalation = $request->input('escalation');
+            $ticket->priority = $request->input('priority');
+            $ticket->user_id = $request->input('user_id');
+            $ticket->staff_id = $request->input('staff_id');
+            $ticket->completed = $request->input('completed');
 
-            if(!$saved){
-                return array("status" => "error");
-            }
+            if($ticket->save()) return $ticket;
+            throw new HttpException(400, "Invalid data");
         }
         catch(\Exception $e) {
             return array("status" => "error");
         }
-
-        return array("status" => "success");
     }
 
     //Deletes ticket with corresponding id

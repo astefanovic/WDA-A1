@@ -20,6 +20,13 @@ class CreateTicketsTable extends Migration
             $table->string('subject');
             $table->string('type');
             $table->string('desc');
+            //Goes from pending->in progress->resolved/unresolved
+            $table->string('status');
+            //Can be low/mod/high
+            $table->string('priority');
+            //Can be 1/2/3
+            $table->string('escalation');
+            //Only resolved/unresolved can be completed
             $table->boolean('completed');
             $table->timestamps();
         });

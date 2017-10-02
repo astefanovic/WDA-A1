@@ -40,4 +40,10 @@ class CommentController extends Controller
         $ticket->delete();
         return redirect()->route('view');
     }
+
+    //API functions
+
+    public function index() {
+        return Comment::all();
+    }
 }

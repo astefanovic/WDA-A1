@@ -39,4 +39,8 @@ Route::middleware('cors')->post('staff', 'StaffController@store');
 
 Route::middleware('cors')->post('staff/tickets', 'StaffController@showTickets');
 
+//Comment API routes
+
+Route::middleware('cors')->get('comments', 'CommentController@index');
+
 

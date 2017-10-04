@@ -43,6 +43,7 @@ class CommentController extends Controller
 
     //API functions
 
+    //Lists all comments
     public function index() {
         return Comment::all();
     }

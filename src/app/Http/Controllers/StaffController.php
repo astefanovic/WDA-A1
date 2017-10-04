@@ -39,6 +39,22 @@ class StaffController extends Controller
         }
     }
 
+    public function update(Request $request) {
+        try {
+            $staff = Staff::where('id', '=', $request->input('id'))->first();
+
+            $staff->uid = $request->input('uid');
+            $staff->email = $request->input('email');
+            $staff->name = $request->input('name');
+            $staff->type = $request->input('type');
+
+            if($staff->save()) return $staff;
+            throw new HttpException(400, "Invalid data");
+        } catch(\Exception $e) {
+            return array("status" => $e->getMessage());
+        }
+    }
+
     //Returns the assigned tickets for the provided technician
     public function showTickets(Request $request) {
         try {

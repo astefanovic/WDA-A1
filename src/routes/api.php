@@ -37,6 +37,8 @@ Route::middleware('cors')->get('staff/{id}', 'StaffController@show');
 
 Route::middleware('cors')->post('staff', 'StaffController@store');
 
+Route::middleware('cors')->post('staff/update', 'StaffController@update');
+
 Route::middleware('cors')->post('staff/tickets', 'StaffController@showTickets');
 
 //Comment API routes

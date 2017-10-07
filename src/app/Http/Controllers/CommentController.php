@@ -45,6 +45,19 @@ class CommentController extends Controller
 
     //Lists all comments
     public function index() {
-        return Comment::all();
+        //First getting all comments
+        $comments = Comment::all();
+        foreach($comments as $comment) {
+            if($comment->user_id != null) {
+                $comment->email = Comment::where('id', '=',$comment->id)->first()->user->email;
+            } else {
+                $comment->email = Comment::where('id', '=',$comment->id)->first()->staff->email;
+            }
+        }
+
+        /*Next, adding the authors email either user or staff
+        $comments = $comments->join('user', 'user_id', '=', 'id')->select('email');
+        $comments= $comments->join('staff', 'staff_id', '=', 'id')->select('email'); */
+        return $comments;
     }
 }

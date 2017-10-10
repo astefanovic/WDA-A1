@@ -35,11 +35,15 @@ Route::middleware('cors')->get('staff', 'StaffController@index');
 
 Route::middleware('cors')->get('staff/{id}', 'StaffController@show');
 
+Route::middleware('cors')->get('staff/tech', 'StaffController@getTech');
+
 Route::middleware('cors')->post('staff', 'StaffController@store');
 
 Route::middleware('cors')->post('staff/update', 'StaffController@update');
 
 Route::middleware('cors')->post('staff/tickets', 'StaffController@showTickets');
+
+Route::middleware('cors')->post('staff/techs', 'StaffController@showTechs');
 
 //Comment API routes
 

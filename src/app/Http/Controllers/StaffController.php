@@ -19,6 +19,11 @@ class StaffController extends Controller
         return Staff::find($id);
     }
 
+    public function getTech() {
+
+        return Staff::where('type', "=", 'Technician')->get();
+    }
+
     //Creates a new staff member if none exist with the same uid
     public function store(Request $request) {
         try {
@@ -66,6 +71,12 @@ class StaffController extends Controller
         } catch(\Exception $e) {
             return array("status" => $e->getMessage());
         }
+    }
+
+    public function showTechs(Request $request) {
+        $staffType = Staff::where([
+            ['type', '=', $request->input('type')]])->get();
+        return $staffType;
     }
 
 }

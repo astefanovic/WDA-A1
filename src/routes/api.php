@@ -49,4 +49,6 @@ Route::middleware('cors')->post('staff/techs', 'StaffController@showTechs');
 
 Route::middleware('cors')->get('comments', 'CommentController@index');
 
+Route::middleware('cors')->post('comments', 'CommentController@insert');
+
 

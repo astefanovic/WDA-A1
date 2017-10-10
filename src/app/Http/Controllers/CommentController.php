@@ -60,4 +60,20 @@ class CommentController extends Controller
         $comments= $comments->join('staff', 'staff_id', '=', 'id')->select('email'); */
         return $comments;
     }
+
+    //Adds a new comment
+    public function insert(Request $request) {
+        try {
+            $newComment = Comment::create([
+                'text' => $request->input('text'),
+                'ticket_id' => $request->input('ticket_id'),
+                'user_id' => $request->input('user_id'),
+                'staff_id' => $request->input('staff_id')
+            ]);
+            if($newComment->save()) return $newComment;
+            throw new HttpException(400, "Invalid data");
+        } catch(\Expression $e) {
+            return array("status" => "error");
+        }
+    }
 }

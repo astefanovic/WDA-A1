@@ -2,6 +2,7 @@
     <div class="card bg-light mb-3">
             <div class="card-header @if($ticket->completed === 0) bg-warning
                                 @else bg-green @endif">
+                <span class="badge badge-dark float-right align-text-bottom mt-3 p-2" >{{strtoupper($ticket->status)}}</span>
                 {{--
                 <button class="btn btn-outline-dark dropdown-toggle float-right no-caret icon-wrapper" type="button" id="dropdownMenuButton" data-toggle="dropdown">
                     <i class="material-icons">settings</i>
@@ -22,13 +23,13 @@
         </div>
 
 
-        <div class="card-body">{{$ticket->desc}} <br> <div class="text-right"> - <em>{{$ticket->user->email}}</em></div></div>
+        <div class="card-body">{{$ticket->desc}} <br> <div class="text-right"> - <em>@if($ticket->staff === NULL){{$ticket->user->email}} @else {{$ticket->staff->email}} @endif</em></div></div>
         <ul class="list-group list-group-flush">
             @foreach ($ticket->comments as $comment)
                 <li class="list-group-item panel-footer">{{$comment->text}}<br>
-                    <div class="text-right"> - <em>{{$comment->user->email}}</em></div></li>
+                    <div class="text-right"> - <em>@if($comment->staff === NULL){{$comment->user->email}} @else {{$comment->staff->email}} @endif</em></div></li>
             @endforeach
-            @if($ticket->completed === 0)
+            @if(false)
                 <a class="list-group-item panel-footer text-center text-light bg-dark-warning" data-toggle="collapse" href="#{{$ticket->id}}" aria-expanded="false" aria-controls="{{$ticket->id}}">
                     Add Comment
                 </a>
